@@ -4,8 +4,12 @@ import pickle
 app = Flask(__name__)
 
 # Загрузка модели
-with open('../model/model.pkl', 'rb') as model_file:
+with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
+
+@app.route('/')
+def home():
+    return 'вжух!'
 
 @app.route('/predict', methods=['POST'])
 def predict():
